@@ -15,7 +15,6 @@ public class ApartamentoModel {
 	private int numeroApartamento;
 	
 	private String morador;
-	
 
 	public ApartamentoModel() {
 		super();
