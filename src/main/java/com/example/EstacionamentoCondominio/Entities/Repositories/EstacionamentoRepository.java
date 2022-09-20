@@ -2,8 +2,8 @@ package com.example.EstacionamentoCondominio.Entities.Repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.example.EstacionamentoCondominio.Entities.Models.UsuariosModel;
+import com.example.EstacionamentoCondominio.Entities.Models.CadastroEstacionamentoModel;
 
-public interface EstacionamentoRepository extends CrudRepository<UsuariosModel, Integer>{
+public interface EstacionamentoRepository extends CrudRepository<CadastroEstacionamentoModel, Integer>{
 
 }

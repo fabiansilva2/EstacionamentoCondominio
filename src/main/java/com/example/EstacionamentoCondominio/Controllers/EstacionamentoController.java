@@ -1,5 +1,7 @@
 package com.example.EstacionamentoCondominio.Controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.EstacionamentoCondominio.Entities.Models.UsuariosModel;
+import com.example.EstacionamentoCondominio.Entities.Models.CadastroEstacionamentoModel;
 import com.example.EstacionamentoCondominio.Entities.Repositories.EstacionamentoRepository;
 
 @CrossOrigin("/*")
@@ -22,18 +24,23 @@ public class EstacionamentoController {
 	private EstacionamentoRepository estacionamentoRepository;
 	
 	@GetMapping
-	public Iterable<UsuariosModel> consultarVagas(){
+	public Iterable<CadastroEstacionamentoModel> consultarVagas(){
 		return estacionamentoRepository.findAll();
 	}
 	
+	@GetMapping("/{id}")
+	public Optional<CadastroEstacionamentoModel> obterCadastroEstacionamentoPorId(@PathVariable int id){
+		return estacionamentoRepository.findById(id);
+	}
+	
 	@PostMapping
-	public @ResponseBody UsuariosModel cadastrarVaga(UsuariosModel vaga) {
+	public @ResponseBody CadastroEstacionamentoModel cadastrarVaga(CadastroEstacionamentoModel vaga) {
 		estacionamentoRepository.save(vaga);
 		return vaga;
 	}
 	
 	@PutMapping
-	public @ResponseBody UsuariosModel alterarVaga(UsuariosModel vaga) {
+	public @ResponseBody CadastroEstacionamentoModel alterarVaga(CadastroEstacionamentoModel vaga) {
 		estacionamentoRepository.save(vaga);
 		return vaga;
 	}
